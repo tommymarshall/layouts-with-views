@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Default Layout</title>
+	<title>Home</title>
 	<link rel="stylesheet" href="assets/stylesheets/application.css" media="all">
 </head>
 <body>
@@ -10,19 +10,17 @@
 	<div class="page-container">
 
 		<header class="global-header">
-			<h1>Layouts with Views</h1>
+			<h1>
+				Layouts with Views
+				<em>Default Layout</em>
+			</h1>
 
 			<?php include 'views/partials/nav.php'; ?>
 
 		</header>
 
-		<div class="content-main has-aside">
+		<div class="content-main">
 			<?php echo $content; ?>
-
-			<aside class="content-aside">
-				<h3>Aside Content</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum perspiciatis non sequi adipisci unde deleniti minus totam doloribus iste quia numquam delectus at cupiditate! In fugiat suscipit enim atque ipsam!</p>
-			</aside>
 		</div>
 
 		<footer class="global-footer">

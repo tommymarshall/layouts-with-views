@@ -9,7 +9,16 @@ body {
   body * {
     box-sizing: border-box; }
 
-/* line 15, ../sass/application.scss */
+/* line 13, ../sass/application.scss */
+a {
+  color: #232c82;
+  text-decoration: none;
+  text-transform: uppercase; }
+  /* line 18, ../sass/application.scss */
+  a:hover {
+    text-decoration: underline; }
+
+/* line 25, ../sass/application.scss */
 h1,
 h2,
 h3 {
@@ -17,53 +26,60 @@ h3 {
   border-bottom: 1px dotted #686868;
   font-weight: 500; }
 
-/* line 21, ../sass/application.scss */
+/* line 31, ../sass/application.scss */
+h1 {
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 20px; }
+  /* line 36, ../sass/application.scss */
+  h1 em {
+    display: block;
+    font-size: 42px; }
+
+/* line 42, ../sass/application.scss */
 .page-container {
   background: #fff;
   margin: 15px auto;
   width: 100%;
   max-width: 800px; }
 
-/* line 29, ../sass/application.scss */
+/* line 50, ../sass/application.scss */
 .global-nav ul {
   font-size: 0;
   list-style: none;
   margin: 0;
   padding: 0; }
-/* line 36, ../sass/application.scss */
+/* line 57, ../sass/application.scss */
 .global-nav li {
   display: inline-block;
   font-size: 15px; }
-/* line 41, ../sass/application.scss */
+/* line 62, ../sass/application.scss */
 .global-nav a {
-  color: #232c82;
-  padding: 10px 15px;
-  text-decoration: none;
-  text-transform: uppercase; }
+  padding: 10px 15px; }
 
-/* line 49, ../sass/application.scss */
+/* line 67, ../sass/application.scss */
 .content-main {
   padding: 5px 35px;
   position: relative;
   min-height: 300px; }
-  /* line 54, ../sass/application.scss */
+  /* line 72, ../sass/application.scss */
   .content-main.has-aside {
     padding-right: 300px; }
 
-/* line 59, ../sass/application.scss */
+/* line 77, ../sass/application.scss */
 .content-aside {
   position: absolute;
   right: 35px;
   top: 12px;
   width: 225px; }
 
-/* line 67, ../sass/application.scss */
+/* line 85, ../sass/application.scss */
 .global-footer,
 .global-header {
   background: #e8e8e8;
   padding: 20px 35px; }
 
-/* line 73, ../sass/application.scss */
+/* line 91, ../sass/application.scss */
 .global-footer {
   font-size: 12px;
   text-align: center; }
