@@ -1,0 +1,69 @@
+/* line 1, ../sass/application.scss */
+body {
+  background: #f2f2f2;
+  color: #373737;
+  font-family: 'Helvetica Neue';
+  font-weight: 300;
+  margin: 0; }
+  /* line 8, ../sass/application.scss */
+  body * {
+    box-sizing: border-box; }
+
+/* line 15, ../sass/application.scss */
+h1,
+h2,
+h3 {
+  font-family: 'Garand';
+  border-bottom: 1px dotted #686868;
+  font-weight: 500; }
+
+/* line 21, ../sass/application.scss */
+.page-container {
+  background: #fff;
+  margin: 15px auto;
+  width: 100%;
+  max-width: 800px; }
+
+/* line 29, ../sass/application.scss */
+.global-nav ul {
+  font-size: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+/* line 36, ../sass/application.scss */
+.global-nav li {
+  display: inline-block;
+  font-size: 15px; }
+/* line 41, ../sass/application.scss */
+.global-nav a {
+  color: #232c82;
+  padding: 10px 15px;
+  text-decoration: none;
+  text-transform: uppercase; }
+
+/* line 49, ../sass/application.scss */
+.content-main {
+  padding: 5px 35px;
+  position: relative;
+  min-height: 300px; }
+  /* line 54, ../sass/application.scss */
+  .content-main.has-aside {
+    padding-right: 300px; }
+
+/* line 59, ../sass/application.scss */
+.content-aside {
+  position: absolute;
+  right: 35px;
+  top: 12px;
+  width: 225px; }
+
+/* line 67, ../sass/application.scss */
+.global-footer,
+.global-header {
+  background: #e8e8e8;
+  padding: 20px 35px; }
+
+/* line 73, ../sass/application.scss */
+.global-footer {
+  font-size: 12px;
+  text-align: center; }
