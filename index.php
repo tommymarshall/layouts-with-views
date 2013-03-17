@@ -1,6 +1,6 @@
 <?php
 /**
- * Layouts with Views - A simple layout and view rendering engine
+ * Layouts with Views - A simple layout and view rendering engine built on PHP.
  *
  * @package  Layouts with Views
  * @version  0.1.0
