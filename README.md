@@ -2,7 +2,7 @@
 ---
 A simple layout and view rendering engine built on PHP.
 
-### Getting Started
+## Description
 
 LwV emulates Rails and other popular framework view systems. Your markup and content is
 stored in the `views/` folder and layouts reside in `views/layouts`, though both of these
@@ -10,6 +10,10 @@ values can be changed in `index.php`.
 
 All partial includes are loaded relative to the root of the application.
 
-### Current Limitations
+Since the rendering engine is PHP, you can utilize any control structures and operators (like `include()`, `foreach()`, etc).
 
-Since the current rendering engine is PHP, you can utilize any control structures and operators (like `include()`, `foreach()`, etc). I plan to add [.erb](http://guides.rubyonrails.org/layouts_and_rendering.html) and [.blade](http://laravel.com/docs/views/templating#blade-template-engine) mimicing-engines in the future.
+## Getting Started
+
+Retrieving a view is pretty simple. If you have an `about` page, create `views/about.php`, navigation to `yourdomain.com/about`, and that view will be rendered.
+
+The default layout is `views/layouts/default.php`. You can override the layout by setting `$layout = 'whatever'` in the top of your view, where `whatever` will reference `views/layouts/whatever.php`.
