@@ -8,19 +8,7 @@
  * @link     http://viget.com
  */
 
-/*
-|----------------------------------------------------------------
-| Set Paths and Views
-|----------------------------------------------------------------
-*/
-
-$views_path     = 'views/';
-$layout_path    = $views_path . 'layouts/';
-$layout_dafault = 'default';
-$view_default   = 'index';
-
-$page   = ($_GET['view'] ? $_GET['view'] : $view_default);
-$layout = ($layout ? $layout : $layout_dafault);
+require_once 'config/config.php';
 
 /*
 |----------------------------------------------------------------
@@ -39,3 +27,4 @@ if ( !file_exists($layout_path . $layout . '.php') )
 	die( "Could not load layout <b>{$layout}</b>");
 
 require $layout_path . $layout . '.php';
+?>
