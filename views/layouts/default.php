@@ -9,23 +9,13 @@
 
 	<div class="page-container">
 
-		<header class="global-header">
-			<h1>
-				Layouts with Views
-				<em>Default Layout</em>
-			</h1>
-
-			<?php include 'views/partials/nav.php'; ?>
-
-		</header>
+		<?php render('shared/header'); ?>
 
 		<div class="content-main">
-			<?php echo $content; ?>
+			<?php content(); ?>
 		</div>
 
-		<footer class="global-footer">
-			<p>Creating with <a href="https://github.com/tommymarshall/layouts-with-views">Layouts with Views</a> &copy; Tommy Marshall</p>
-		</footer>
+		<?php render('shared/footer'); ?>
 
 	</div>
 

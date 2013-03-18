@@ -1,4 +1,4 @@
-<?php $layout = 'internal'; ?>
+<?php layout('internal'); ?>
 
 <h2>About</h2>
 
