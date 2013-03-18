@@ -3,28 +3,26 @@
  * Layouts with Views - A simple layout and view rendering engine built on PHP.
  *
  * @package  Layouts with Views
- * @version  0.1.0
+ * @version  0.2.0
  * @author   Tommy Marshall <tommy.marshall@viget.com>
  * @link     http://viget.com
  */
 
-require_once 'config/config.php';
-
 /*
 |----------------------------------------------------------------
-| Render the View with the Layout
+| Setup
 |----------------------------------------------------------------
 */
 
-if ( !file_exists($views_path . $page . '.php') )
-	die( "Could not load view <b>{$page}</b>");
+$config = require_once 'system/config.php';
+require_once 'system/LayoutsWithViews.php';
 
-ob_start();
-require $views_path . $page . '.php';
-$content = ob_get_clean();
+$app = new LayoutsWithViews( $config );
 
-if ( !file_exists($layout_path . $layout . '.php') )
-	die( "Could not load layout <b>{$layout}</b>");
+/*
+|----------------------------------------------------------------
+| Render the View inside the Layout
+|----------------------------------------------------------------
+*/
 
-require $layout_path . $layout . '.php';
-?>
+$app->display();

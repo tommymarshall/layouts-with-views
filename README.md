@@ -6,11 +6,16 @@ A simple layout and view rendering engine built on PHP.
 
 LwV emulates Rails and other popular framework view systems. Your markup and content is
 stored in the `views/` folder and layouts reside in `views/layouts`, though both of these
-values can be changed in `index.php`.
+values can be changed in `system/config.php`.
 
 All partial includes are loaded relative to the root of the application.
 
-Since the rendering engine is PHP, you can utilize any control structures and operators (like `include()`, `foreach()`, etc).
+Since the rendering engine is PHP, you can utilize any control structures and operators.
+
+## How To
+
+
+
 
 ## Getting Started
 

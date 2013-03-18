@@ -9,18 +9,11 @@
 
 	<div class="page-container">
 
-		<header class="global-header">
-			<h1>
-				Layouts with Views
-				<em>Internal Layout</em>
-			</h1>
-
-			<?php include 'views/partials/nav.php'; ?>
-
-		</header>
+		<?php $this->render('shared/header'); ?>
 
 		<div class="content-main has-aside">
-			<?php echo $content; ?>
+
+			<?php $this->getContent(); ?>
 
 			<aside class="content-aside">
 				<h3>Aside Content</h3>
@@ -28,9 +21,7 @@
 			</aside>
 		</div>
 
-		<footer class="global-footer">
-			<p>Creating with <a href="https://github.com/tommymarshall/layouts-with-views">Layouts with Views</a> &copy; Tommy Marshall</p>
-		</footer>
+		<?php $this->render('shared/footer'); ?>
 
 	</div>
 
