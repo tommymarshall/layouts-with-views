@@ -9,11 +9,11 @@
 
 	<div class="page-container">
 
-		<?php render('shared/header'); ?>
+		<?php $this->render('shared/header'); ?>
 
 		<div class="content-main has-aside">
 
-			<?php content(); ?>
+			<?php $this->getContent(); ?>
 
 			<aside class="content-aside">
 				<h3>Aside Content</h3>
@@ -21,7 +21,7 @@
 			</aside>
 		</div>
 
-		<?php render('shared/footer'); ?>
+		<?php $this->render('shared/footer'); ?>
 
 	</div>
 

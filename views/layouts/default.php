@@ -9,13 +9,15 @@
 
 	<div class="page-container">
 
-		<?php render('shared/header'); ?>
+		<?php $this->render('shared/header'); ?>
 
 		<div class="content-main">
-			<?php content(); ?>
+
+			<?php $this->getContent(); ?>
+
 		</div>
 
-		<?php render('shared/footer'); ?>
+		<?php $this->render('shared/footer'); ?>
 
 	</div>
 

@@ -4,6 +4,6 @@
 		<em>Internal Layout</em>
 	</h1>
 
-	<?php render('shared/nav'); ?>
+	<?php $this->render('shared/nav'); ?>
 
 </header>

@@ -14,27 +14,15 @@
 |----------------------------------------------------------------
 */
 
-require_once 'system/config.php';
-require_once 'system/helpers.php';
+$config = require_once 'system/config.php';
+require_once 'system/LayoutsWithViews.php';
 
+$app = new LayoutsWithViews( $config );
 
 /*
 |----------------------------------------------------------------
-| Render the View with the Layout
+| Render the View inside the Layout
 |----------------------------------------------------------------
 */
 
-$page   = ($_GET['view'] ? $_GET['view'] : $config['default_view']);
-$layout = ($layout ? $layout : $config['default_layout']);
-
-if ( !file_exists($config['view_path'] . $page . '.php') )
-	die( "Could not load view <b>{$page}</b>" );
-
-ob_start();
-require_once $config['view_path'] . $page . '.php';
-$content = ob_get_clean();
-
-if ( !file_exists($config['layout_path'] . $layout . '.php') )
-	die( "Could not load layout <b>{$layout}</b>" );
-
-require_once $config['layout_path'] . $layout . '.php';
+$app->display();
