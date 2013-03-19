@@ -14,7 +14,7 @@
 |----------------------------------------------------------------
 */
 
-$config = require_once 'system/config.php';
+$config = require_once 'config/config.php';
 $config['app_dir'] = __DIR__ . '/';
 
 require_once 'system/LayoutsWithViews.php';
