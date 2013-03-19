@@ -11,13 +11,16 @@ Since the rendering engine is PHP, you can utilize any control structures and op
 Let's say you have an `about` page. Create `views/about.php`, navigation to `yourdomain.com/about`, and that view will be retrieved. The default view you see when visiting the root of LwS is `views/index.php`. This is customizable in `system/config.php`.
 
 ### Setting a Layout
-The default layout is `views/layouts/default.php` and can be changed in `system/config.php`. You can also override the default layout by setting `$this->layout('example');` in a view, where `example` will reference `views/layouts/example.php`.
+The default layout is `views/layouts/default.php` and can be changed in `system/config.php`. You can also override the default layout by setting `$this->layout('example')` in a view, where `example` will reference `views/layouts/example.php`.
 
 ### Rendering Content
 The main content of your view can be retrieved and displayed in the layout by calling `$this->getContent();`.
 
+### Rendering Assets
+Assets (images, javascript, stylesheets, etc) can be accessed by calling `$this->asset('images/example.jpg')` which then retrieves the given asset relative to the `assets` folder. And of course you can always add your own absolute or relative paths to the layouts, views, etc.
+
 ### Rendering Partials
-You can render partials within views. Partials are stored in the `views/shared` and can be referenced from and saved in any view and layout. To render a view, use `$this->render('partial/file');`. All partials are referenced relative to the `views/` folder.
+You can render partials within views. Partials are stored in the `views/shared` and can be referenced from and saved in any view and layout. To render a view, use `$this->render('shared/file')`. All partials are referenced relative to the `views/` folder. You can also have unlimited nested folders, so `$this->render('shared/some/nested/partial');`
 
 ## For Example (layouts/default.php)
     <html lang="en">
