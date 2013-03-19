@@ -5,10 +5,12 @@ LwV emulates Rails and other popular framework view systems. Your markup and con
 
 Since the rendering engine is PHP, you can utilize any control structures and operators you like.
 
-## Retrieving a View
+## Getting Started
+
+### Retrieving a View
 Let's say you have an `about` page. Create `views/about.php`, navigation to `yourdomain.com/about`, and that view will be retrieved. The default view you see when visiting the root of LwS is `views/index.php`. This is customizable in `system/config.php`.
 
-## Setting a Layout
+### Setting a Layout
 The default layout is `views/layouts/default.php` and can be changed in `system/config.php`. You can also override the default layout by setting `$this->layout('example');` in a view, where `example` will reference `views/layouts/example.php`.
 
 ### Rendering Content

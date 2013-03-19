@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Home</title>
-	<link rel="stylesheet" href="assets/stylesheets/application.css" media="all">
+	<link rel="stylesheet" href="<?php $this->asset('stylesheets/application.css'); ?>" media="all">
 </head>
 <body>
 
