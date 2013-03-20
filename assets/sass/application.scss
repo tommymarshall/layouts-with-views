@@ -15,6 +15,7 @@ a {
 	text-decoration: none;
 	text-transform: uppercase;
 
+	&.active,
 	&:hover {
 		text-decoration: underline;
 	}

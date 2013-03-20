@@ -3,7 +3,7 @@
  * Layouts with Views - A simple layout and view rendering engine built on PHP.
  *
  * @package  Layouts with Views
- * @version  0.3.1
+ * @version  0.3.2
  * @author   Tommy Marshall <tommy.marshall@viget.com>
  * @link     http://viget.com
  */

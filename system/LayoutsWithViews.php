@@ -30,17 +30,11 @@ class LayoutsWithViews {
 	}
 
 	public function matches( $route ) {
-		if ( strpos($this->view, '/') ) {
-			$this->page = substr( strrchr( $this->view, '/' ), 1 );
-		} else {
-			$this->page = $this->view;
-		}
-
 		if ( $route === '/') {
 			$route = $this->config['default_view'];
 		}
 
-		return $this->page === $route;
+		return $this->view === $route;
 	}
 
 	public function layout( $layout = false ) {
