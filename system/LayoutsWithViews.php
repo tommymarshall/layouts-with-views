@@ -29,6 +29,20 @@ class LayoutsWithViews {
 		echo 'http://' . $_SERVER["SERVER_NAME"] . '/' . $this->config['base_dir'] . $to;
 	}
 
+	public function matches( $route ) {
+		if ( strpos($this->view, '/') ) {
+			$this->page = substr( strrchr( $this->view, '/' ), 1 );
+		} else {
+			$this->page = $this->view;
+		}
+
+		if ( $route === '/') {
+			$route = $this->config['default_view'];
+		}
+
+		return $this->page === $route;
+	}
+
 	public function layout( $layout = false ) {
 		$this->layout = $layout;
 	}
