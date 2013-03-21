@@ -4,6 +4,6 @@
 		<em>Internal Layout</em>
 	</h1>
 
-	<?php $this->render('shared/nav'); ?>
+	<?php $this->render('shared/nav', array('show_home' => true)); ?>
 
 </header>

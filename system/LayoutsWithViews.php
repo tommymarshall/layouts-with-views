@@ -41,7 +41,11 @@ class LayoutsWithViews {
 		$this->layout = $layout;
 	}
 
-	public function render( $view ) {
+	public function render( $view, $vars = null ) {
+		foreach ($vars as $var => $val ) {
+			$$var = $val;
+		}
+
 		include $this->config['view_path'] . $view . '.php';
 	}
 
