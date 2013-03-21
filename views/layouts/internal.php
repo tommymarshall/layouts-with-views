@@ -13,6 +13,10 @@
 
 		<div class="content-main has-aside">
 
+			<?php if ( isset($page_title) ): ?>
+				<h2><?php echo $page_title ?></h2>
+			<?php endif; ?>
+
 			<?php $this->getContent(); ?>
 
 			<aside class="content-aside">
