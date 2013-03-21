@@ -14,7 +14,6 @@
 
 class LayoutsWithViews {
 
-	// Configuration Settings
 	private $config;
 
 	private $layout;
