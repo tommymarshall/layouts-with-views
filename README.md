@@ -32,7 +32,7 @@ You can render partials within views. Partials are stored in the `views/shared` 
 You can pass variables to nested views and a layout by assigning an array as a second parameter. For example `$this->render('shared/file', array('title' => 'New Page Title'))`, that view can now access the value of `title` in the sent array as `$title` in that nested view. The syntax for passing a variable to be used in a layout (which can be subsequently sent to another partial) `$this->layout(false, array('title' => 'New Page Title'))` (Set the first parameter to `false` to use the default layout)
 
 ## Examples
-### Basic Layout (views/layouts/default.php) Referencing Partials
+### Layout (views/layouts/default.php) Referencing 2 Partials
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -60,21 +60,19 @@ You can pass variables to nested views and a layout by assigning an array as a s
 
     <h2>About Page</h2>
 
-    <p>Content here</p>
+    <p>Some page content here</p>
 
 
-### View (views/about.php) Passing $page Variable to Default Layout
+### View (views/about.php) Passing `$page` to Default Layout
     <?php $this->layout(false, array('page' => 'About'); ?>
 
+    <p>Some page content here</p>
+
+
+### View (views/about.php) Passing `$content` to Partial (shared/extra_content.php)
     <h2>About Page</h2>
 
-    <p>Content here</p>
-
-
-### View (views/about.php) Passing `content` Variable to a Partial
-    <h2>About Page</h2>
-
-    <p>Content here</p>
+    <p>Some page content here</p>
 
     <?php $this->render('shared/extra_content', array('content' => 'Some custom contest here.')); ?>
 
