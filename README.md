@@ -24,6 +24,9 @@ Assets (images, javascript, stylesheets, etc) can be accessed by calling `$this-
 ### Rendering Partials
 You can render partials within views. Partials are stored in the `views/shared` and can be referenced from and saved in any view and layout. To render a view, use `$this->render('shared/file')`. All partials are referenced relative to the `views/` folder. You can also have unlimited nested folders, so `$this->render('shared/some/nested/partial');`
 
+### Passing Variables to Nested Views
+You can pass variables to nested views by assigning an array as a second parameter. For example `$this->render('shared/file', array('title' => 'New Page Title'))`, that view can now access the value of `title` in the sent array as `$title` in that nested view.
+
 ## Basic Layout Example (layouts/default.php)
     <html lang="en">
     <head>
