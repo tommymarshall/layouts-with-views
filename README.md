@@ -69,7 +69,7 @@ You can pass variables to nested views and a layout by assigning an array as a s
     <p>Some page content here</p>
 
 
-### View (views/about.php) Passing `$content` to Partial (shared/extra_content.php)
+### View (views/about.php) Passing `$content` to Partial (views/shared/extra_content.php)
     <h2>About Page</h2>
 
     <p>Some page content here</p>
