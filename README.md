@@ -5,6 +5,10 @@ LwV emulates Rails and other popular framework view systems. Your markup and con
 
 Since the rendering engine is PHP, you can utilize any control structures and operators you like.
 
+## Setup
+
+Crack open `config/config.php` and review the settings. By default, LwV expects to be in the root of whatever URL it is being accessed from. If LwV is in a sub-directory (domain.com/layout), set the `base_dir` configuration to `layout`
+
 ## Getting Started
 
 ### Retrieving a View

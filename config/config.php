@@ -12,7 +12,7 @@ return array(
 	|
 	*/
 
-	'base_dir'      => '',
+	'base_dir' => '',
 
 	/*
 	|----------------------------------------------------------------
@@ -24,7 +24,7 @@ return array(
 	|
 	*/
 
-	'asset_path'     => 'assets/',
+	'asset_path' => 'assets/',
 
 	/*
 	|----------------------------------------------------------------
@@ -37,10 +37,10 @@ return array(
 
 	'default_layout' => 'default',
 
-	'default_view'   => 'index',
+	'default_view' => 'index',
 
-	'layout_path'    => 'views/layouts/',
+	'layout_path' => 'views/layouts/',
 
-	'view_path'      => 'views/',
+	'view_path' => 'views/',
 
 );
