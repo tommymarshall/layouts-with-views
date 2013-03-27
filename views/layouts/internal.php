@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Internal Layout</title>
+	<title>Internal | <?php echo (isset($title) ? $title : ''); ?></title>
 	<link rel="stylesheet" href="<?php $this->asset('stylesheets/application.css'); ?>" media="all">
+	<meta name="description" content="<?php echo $meta; ?>">
 </head>
 <body>
 
