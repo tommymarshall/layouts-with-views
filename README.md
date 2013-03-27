@@ -1,21 +1,21 @@
 # Layouts with Views (LwV)
 A simple layout and view rendering engine built on PHP.
 
-LwV emulates Rails and other popular framework view systems. Your markup and content is stored in the `views/` folder and layouts reside in `views/layouts`, though both of these values can be changed in `system/config.php`.
+LwV emulates Rails and other popular framework view systems. Your markup and content is stored in the `views/` folder and layouts reside in `views/layouts`, though both of these values can be changed in `config/config.php`.
 
 Since the rendering engine is PHP, you can utilize any control structures and operators you like.
 
-## Setup (`config/config.php`)
+## Initial Setup
 
 By default LwV expects to be installed in the root of whatever URL it is being accessed from. If the install directory is in the root (ie. www.domain.com/layout), set the `base_dir` configuration to 'layout/'.
 
 ## Getting Started
 
 ### Retrieving a View
-Let's say you want to reference an an About page. Create `views/about.php`, navigation to `yourdomain.com/about`, and that view will be retrieved. The default view you see when visiting the root of LwS is `views/index.php`. This is customizable in `system/config.php`.
+Let's say you want to reference an an About page. Create `views/about.php`, navigation to `yourdomain.com/about`, and that view will be retrieved. The default view you see when visiting the root of LwS is `views/index.php`. This is customizable in `config/config.php`.
 
 ### Setting a Layout
-The default layout is `views/layouts/default.php` and can be changed in `system/config.php`. You can also override the default layout by setting `$this->layout('example')` in a view, where `example` will reference `views/layouts/example.php`.
+The default layout is `views/layouts/default.php` and can be changed in `config/config.php`. You can also override the default layout by setting `$this->layout('example')` in a view, where `example` will reference `views/layouts/example.php`.
 
 ### Rendering Content
 The main content of your view can be retrieved and displayed in the layout by calling `$this->getContent();`.
