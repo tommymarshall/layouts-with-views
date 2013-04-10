@@ -63,7 +63,11 @@ class LayoutsWithViews {
 			$$var = $val;
 		}
 
-		include $this->config['view_path'] . $view . '.php';
+		if ( ! file_exists($this->config['view_path'] . $view . '.php')) {
+			echo $view . ' does not exist.';
+		} else {
+			include $this->config['view_path'] . $view . '.php';
+		}
 	}
 
 	public function display() {
