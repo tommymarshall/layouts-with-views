@@ -55,7 +55,7 @@ class LayoutsWithViews {
 			$this->vars[$var] = $val;
 		}
 
-		if ( $layout ) $this->layout = $layout;
+		$this->layout = $layout;
 	}
 
 	public function render( $view, $vars = null ) {
@@ -102,10 +102,15 @@ class LayoutsWithViews {
 			$$var = $val;
 		}
 
-		if ( !file_exists($this->config['layout_path'] . $this->layout . '.php') )
-			die( "Could not load layout <b>{$this->layout}</b>" );
+		if ( $this->layout ) {
+			if ( !file_exists($this->config['layout_path'] . $this->layout . '.php') )
+				die( "Could not load layout <b>{$this->layout}</b>" );
 
-		// Output out layout, with the page content and any extra variables
-		require_once $this->config['layout_path'] . $this->layout . '.php';
+			// Output out layout, with the page content and any extra variables
+			require_once $this->config['layout_path'] . $this->layout . '.php';
+		} else {
+			$this->getContent();
+		}
+
 	}
 }
