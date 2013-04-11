@@ -12,7 +12,7 @@ By default LwV expects to be installed in the root of whatever URL it is being a
 ## Getting Started
 
 ### Retrieving a View
-Let's say you want to reference an an About page. Create `views/about.php`, navigation to `yourdomain.com/about`, and that view will be retrieved. The default view you see when visiting the root of LwS is `views/index.php`. This is customizable in `config/config.php`.
+Let's say you want to reference an About page. Create `views/about.php`, navigation to `yourdomain.com/about`, and that view will be retrieved. The default view you see when visiting the root of LwS is `views/index.php`. This is customizable in `config/config.php`.
 
 ### Setting a Layout
 The default layout is `views/layouts/default.php` and can be changed in `config/config.php`. You can also override the default layout by setting `$this->layout('example')` in a view, where `example` will reference `views/layouts/example.php`.
