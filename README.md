@@ -49,7 +49,7 @@ You can pass variables to nested views and a layout by assigning an array as a s
         </div>
 
         <footer>
-            <?php $this->render('shared/header'); ?>
+            <?php $this->render('shared/footer'); ?>
         </footer>
 
     </body>
