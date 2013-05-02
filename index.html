@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Layouts-with-views by tommymarshall</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Layouts-with-views</h1>
+        <p>A simple layout and view rendering engine.</p>
+
+        <p class="view"><a href="https://github.com/tommymarshall/layouts-with-views">View the Project on GitHub <small>tommymarshall/layouts-with-views</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/tommymarshall/layouts-with-views/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/tommymarshall/layouts-with-views/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/tommymarshall/layouts-with-views">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>Layouts with Views emulates Rails and other popular MVC framework . Your markup and content is stored in the <code>views/</code> folder and layouts reside in <code>views/layouts</code>, though both of these values can be changed in <code>config/config.php</code>.</p>
+
+<p>Since the rendering engine is PHP, you can utilize any control structures and operators you like.</p>
+
+<h2>Initial Setup</h2>
+
+<p>By default LwV expects to be installed in the root of whatever URL it is being accessed from. If the install directory is in the root (ie. <a href="http://www.domain.com/layout">www.domain.com/layout</a>), set the <code>base_dir</code> configuration to 'layout/'.</p>
+
+<h2>Getting Started</h2>
+
+<h3>Retrieving a View</h3>
+
+<p>Let's say you want to reference an About page. Create <code>views/about.php</code>, navigation to <code>yourdomain.com/about</code>, and that view will be retrieved. The default view you see when visiting the root of LwS is <code>views/index.php</code>. This is customizable in <code>config/config.php</code>.</p>
+
+<h3>Setting a Layout</h3>
+
+<p>The default layout is <code>views/layouts/default.php</code> and can be changed in <code>config/config.php</code>. You can also override the default layout by setting <code>$this-&gt;layout('example')</code> in a view, where <code>example</code> will reference <code>views/layouts/example.php</code>.</p>
+
+<h3>Rendering Content</h3>
+
+<p>The main content of your view can be retrieved and displayed in the layout by calling <code>$this-&gt;getContent();</code>.</p>
+
+<h3>Rendering Assets</h3>
+
+<p>Assets (images, javascript, stylesheets, etc) can be accessed by calling <code>$this-&gt;asset('images/example.jpg')</code> which then retrieves the given asset relative to the <code>assets</code> folder. And of course you can always add your own absolute or relative paths to the layouts, views, etc. For example:</p>
+
+<pre><code>&lt;img src="&lt;?php $this-&gt;asset('images/example.jpg'); ?&gt;"&gt;
+</code></pre>
+
+<h3>Rendering Partials</h3>
+
+<p>You can render partials within views. Partials are stored in the <code>views/shared</code> and can be referenced from and saved in any view and layout. To render a view, use <code>$this-&gt;render('shared/file')</code>. All partials are referenced relative to the <code>views/</code> folder. You can also have unlimited nested folders, so <code>$this-&gt;render('shared/some/nested/partial');</code></p>
+
+<h3>Passing Variables to Views and Layouts.</h3>
+
+<p>You can pass variables to nested views and a layout by assigning an array as a second parameter. For example <code>$this-&gt;render('shared/file', array('title' =&gt; 'New Page Title'))</code>, that view can now access the value of <code>title</code> in the sent array as <code>$title</code> in that nested view. The syntax for passing a variable to be used in a layout (which can be subsequently sent to another partial) <code>$this-&gt;layout('default', array('title' =&gt; 'New Page Title'))</code> (Set the first parameter to <code>false</code> to load the view without a layout).</p>
+
+<h2>Examples</h2>
+
+<h3>Layout (views/layouts/default.php) Referencing 2 Partials</h3>
+
+<pre><code>&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;header&gt;
+        &lt;?php $this-&gt;render('shared/header'); ?&gt;
+    &lt;/header&gt;
+
+    &lt;div class="content"&gt;
+        &lt;?php $this-&gt;getContent(); ?&gt;
+    &lt;/div&gt;
+
+    &lt;footer&gt;
+        &lt;?php $this-&gt;render('shared/footer'); ?&gt;
+    &lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<h3>View (views/about.php) Referencing Custom Layout (views/layouts/custom.php)</h3>
+
+<pre><code>&lt;?php $this-&gt;layout('custom'); ?&gt;
+
+&lt;h2&gt;About Page&lt;/h2&gt;
+
+&lt;p&gt;Some page content here&lt;/p&gt;
+</code></pre>
+
+<h3>View (views/about.php) Passing <code>$page</code> to Default Layout</h3>
+
+<pre><code>&lt;?php $this-&gt;layout(false, array('page' =&gt; 'About'); ?&gt;
+
+&lt;p&gt;Some page content here&lt;/p&gt;
+</code></pre>
+
+<h3>View (views/about.php) Passing <code>$content</code> to Partial (views/shared/extra_content.php)</h3>
+
+<pre><code>&lt;h2&gt;About Page&lt;/h2&gt;
+
+&lt;p&gt;Some page content here&lt;/p&gt;
+
+&lt;?php $this-&gt;render('shared/extra_content', array('content' =&gt; 'Some custom contest here.')); ?&gt;
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/tommymarshall">tommymarshall</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
