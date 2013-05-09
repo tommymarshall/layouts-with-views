@@ -89,6 +89,9 @@ class LayoutsWithViews {
 			}
 		}
 
+		if ( is_dir($this->config['view_path'] . $this->view) )
+			$this->view = $this->view . $this->config['default_view'];
+
 		if ( !file_exists($this->config['view_path'] . $this->view . '.php') )
 			die( "Could not load view <b>{$this->view}</b>" );
 
