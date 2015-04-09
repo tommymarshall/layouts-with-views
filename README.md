@@ -23,7 +23,7 @@ The main content of your view can be retrieved and displayed in the layout by ca
 ### Rendering Assets
 Assets (images, javascript, stylesheets, etc) can be accessed by calling `$this->asset('images/example.jpg')` which then retrieves the given asset relative to the `assets` folder. And of course you can always add your own absolute or relative paths to the layouts, views, etc. For example:
 
-    <img src="<?php $this->asset('images/example.jpg'); ?>">
+    <img src="<?= $this->asset('images/example.jpg'); ?>">
 
 ### Rendering Partials
 You can render partials within views. Partials are stored in the `views/shared` and can be referenced from and saved in any view and layout. To render a view, use `$this->render('shared/file')`. All partials are referenced relative to the `views/` folder. You can also have unlimited nested folders, so `$this->render('shared/some/nested/partial');`
@@ -41,15 +41,15 @@ You can pass variables to nested views and a layout by assigning an array as a s
     <body>
 
         <header>
-            <?php $this->render('shared/header'); ?>
+            <?= $this->render('shared/header'); ?>
         </header>
 
         <div class="content">
-            <?php $this->getContent(); ?>
+            <?= $this->getContent(); ?>
         </div>
 
         <footer>
-            <?php $this->render('shared/footer'); ?>
+            <?= $this->render('shared/footer'); ?>
         </footer>
 
     </body>
@@ -74,5 +74,5 @@ You can pass variables to nested views and a layout by assigning an array as a s
 
     <p>Some page content here</p>
 
-    <?php $this->render('shared/extra_content', array('content' => 'Some custom contest here.')); ?>
+    <?= $this->render('shared/extra_content', array('content' => 'Some custom contest here.')); ?>
 
