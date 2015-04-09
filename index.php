@@ -1,20 +1,15 @@
-<?php
+<?php namespace LayoutsWithViews;
+
 /**
- * Layouts with Views - A simple layout and view rendering engine built on PHP.
+ * Layouts with Views - A simple layout and view rendering engine built on PHP
  *
  * @package  Layouts with Views
- * @version  1.1.0
+ * @version  2.0.0
  * @author   Tommy Marshall <tommy.marshall@viget.com>
  * @link     http://viget.com
  */
 
 require_once __DIR__ . '/vendor/autoload.php';
-
-/*
-|----------------------------------------------------------------
-| Setup
-|----------------------------------------------------------------
-*/
 
 $config = [
     'app_dir'      => __DIR__ . '/',
@@ -24,4 +19,4 @@ $config = [
     'view_path'    => 'views/',
 ];
 
-$app = (new LayoutsWithViews\TemplatingClass)->setConfig($config)->display();
+$app = (new TemplatingClass)->setConfig($config)->display();
