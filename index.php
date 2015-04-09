@@ -8,22 +8,20 @@
  * @link     http://viget.com
  */
 
+require_once __DIR__ . '/vendor/autoload.php';
+
 /*
 |----------------------------------------------------------------
 | Setup
 |----------------------------------------------------------------
 */
 
-$config = require_once 'config/config.php';
-$config['app_dir'] = __DIR__ . '/';
+$config = [
+    'app_dir'      => __DIR__ . '/',
+    'asset_path'   => 'assets/',
+    'base_path'    => 'Personal/layouts-with-views/',
+    'default_view' => 'index',
+    'view_path'    => 'views/',
+];
 
-require_once 'system/LayoutsWithViews.php';
-$app = new LayoutsWithViews( $config );
-
-/*
-|----------------------------------------------------------------
-| Render the View inside the Layout
-|----------------------------------------------------------------
-*/
-
-$app->display();
+$app = (new LayoutsWithViews\TemplatingClass)->setConfig($config)->display();

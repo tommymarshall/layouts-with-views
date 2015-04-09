@@ -1,0 +1,17 @@
+{
+    "name": "tommymarshall/layouts-with-views",
+    "description": "Easy templating",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tommy Marshall",
+            "email": "tommy.marshall@viget.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "LayoutsWithViews\\" : "src/"
+        }
+    }
+}

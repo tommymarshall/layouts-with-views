@@ -1,32 +1,32 @@
-<?php
+<?php namespace LayoutsWithViews;
 
 /*
-|----------------------------------------------------------------
+|--------------------------------------------------------------------
 | Layouts with Views - Class
-|----------------------------------------------------------------
+|--------------------------------------------------------------------
 |
-| This class powers the app. It takes care of assigning
-| configuration settings, which view to load, layout to use, and
-| content to grab. I wouldn't mess with it unless you know know
-| what you're doing ;)
+| This class powers the app. It takes care of assigning configuration
+| settings, which view to load, layout to use, and content to grab.
 |
 */
 
-class LayoutsWithViews
+class TemplatingClass
 {
-    private $config;
+    protected $config;
 
-    private $layout;
+    protected $layout;
 
-    private $vars;
+    protected $vars;
 
-    private $view;
+    protected $view;
 
-    private $content;
+    protected $content;
 
-    public function __construct($config)
+    public function setConfig($config)
     {
         $this->config = $config;
+
+        return $this;
     }
 
     public function getContent()
@@ -79,8 +79,7 @@ class LayoutsWithViews
         try
         {
             require $this->config['view_path'] . $view . '.php';
-        } catch (Exception $e)
-        {
+        } catch (\Exception $e) {
             echo "Message : " . $e->getMessage();
             echo "Code : " . $e->getCode();
         }
@@ -141,13 +140,9 @@ class LayoutsWithViews
 
         if ( $this->layout )
         {
-            try
-            {
-                // Output the layout with page content and any extra vars
+            try {
                 require $this->config['view_path'] . $this->layout . '.php';
-            }
-            catch (Exception $e)
-            {
+            } catch (\Exception $e) {
                 echo "Message : " . $e->getMessage();
                 echo "Code : " . $e->getCode();
             }
