@@ -1,25 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Home</title>
-	<link rel="stylesheet" href="<?php $this->asset('stylesheets/application.css'); ?>" media="all">
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="<?= $this->asset('stylesheets/application.css'); ?>" media="all">
 </head>
 <body>
 
-	<div class="page-container">
+  <div class="page-container">
 
-		<?php $this->render('shared/header'); ?>
+    <?= $this->render('shared/header'); ?>
 
-		<div class="content-main">
+    <div class="content-main">
 
-			<?php $this->getContent(); ?>
+      <?= $this->getContent(); ?>
 
-		</div>
+    </div>
 
-		<?php $this->render('shared/footer'); ?>
+    <?= $this->render('shared/footer'); ?>
 
-	</div>
+  </div>
 
 </body>
 </html>

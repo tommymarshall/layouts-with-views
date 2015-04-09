@@ -12,7 +12,7 @@ return array(
 	|
 	*/
 
-	'base_dir' => '',
+	'base_path' => 'Personal/layouts-with-views/',
 
 	/*
 	|----------------------------------------------------------------
@@ -35,11 +35,7 @@ return array(
 	|
 	*/
 
-	'default_layout' => 'default',
-
 	'default_view' => 'index',
-
-	'layout_path' => 'views/layouts/',
 
 	'view_path' => 'views/',
 

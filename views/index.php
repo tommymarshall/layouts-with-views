@@ -1,3 +1,5 @@
+<?php $this->layout('layouts/internal'); ?>
+
 <h2>Home Page</h2>
 
 <img src="<?php $this->asset('images/example.jpg'); ?>" alt="Example Image" style="float:right;margin: 0 0 35px 35px;">

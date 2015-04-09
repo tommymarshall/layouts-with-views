@@ -12,108 +12,149 @@
 |
 */
 
-class LayoutsWithViews {
+class LayoutsWithViews
+{
+    private $config;
 
-	private $config;
+    private $layout;
 
-	private $layout;
+    private $vars;
 
-	private $vars;
+    private $view;
 
-	private $view;
+    private $content;
 
-	private $content;
+    public function __construct($config)
+    {
+        $this->config = $config;
+    }
 
-	public function __construct( $config ) {
-		$this->config = $config;
-		$this->layout = $this->config['default_layout'];
-	}
+    public function getContent()
+    {
+        return $this->content;
+    }
 
-	public function getContent() {
-		echo $this->content;
-	}
+    public function asset( $asset )
+    {
+        return 'http://' . $_SERVER['SERVER_NAME'] . '/' . $this->config['base_path'] . $this->config['asset_path'] . $asset;
+    }
 
-	public function asset( $asset ) {
-		echo 'http://' . $_SERVER["SERVER_NAME"] . '/' . $this->config['base_dir'] . $this->config['asset_path'] . $asset;
-	}
+    public function route( $to )
+    {
+        if ( $to === '/' )
+        {
+            $to = '';
+        }
 
-	public function route( $to ) {
-		if ( $to === '/' ) $to = '';
-		echo 'http://' . $_SERVER["SERVER_NAME"] . '/' . $this->config['base_dir'] . $to;
-	}
+        return 'http://' . $_SERVER['SERVER_NAME'] . '/' . $this->config['base_path'] . $to;
+    }
 
-	public function matches( $route ) {
-		if ( $route === '/' ) {
-			$route = $this->config['default_view'];
-		}
+    public function matches( $route )
+    {
+        if ( $route === '/' )
+        {
+            $route = $this->config['default_view'];
+        }
 
-		return $this->view === $route;
-	}
+        return $this->view === $route;
+    }
 
-	public function layout( $layout, $vars = null ) {
-		foreach ($vars as $var => $val ) {
-			$this->vars[$var] = $val;
-		}
+    public function layout( $layout, $vars = null )
+    {
+        foreach ($vars as $var => $val )
+        {
+            $this->vars[$var] = $val;
+        }
 
-		$this->layout = $layout;
-	}
+        $this->layout = $layout;
+    }
 
-	public function render( $view, $vars = null ) {
-		foreach ($vars as $var => $val ) {
-			$$var = $val;
-		}
+    public function render( $view, $vars = null )
+    {
+        foreach ($vars as $var => $val )
+        {
+            $$var = $val;
+        }
 
-		if ( ! file_exists($this->config['view_path'] . $view . '.php')) {
-			echo $view . ' does not exist.';
-		} else {
-			include $this->config['view_path'] . $view . '.php';
-		}
-	}
+        try
+        {
+            require $this->config['view_path'] . $view . '.php';
+        } catch (Exception $e)
+        {
+            echo "Message : " . $e->getMessage();
+            echo "Code : " . $e->getCode();
+        }
+    }
 
-	public function display() {
-		$this->view = ( $_GET['view'] ? $_GET['view'] : $this->config['default_view'] );
-		$parts = explode('/', $this->view );
+    private function currentPath()
+    {
+        return substr($_SERVER['REQUEST_URI'], strlen($this->config['base_path']) + 1, strlen($_SERVER['REQUEST_URI']));
+    }
 
-		// If this is a nested view (in a sub-folder)
-		if ( $parts ) {
-			$this->view = '';
+    public function display()
+    {
+        $this->view = strlen($this->currentPath()) > 0 ? $this->currentPath() : $this->config['default_view'];
+        $parts = explode('/', $this->view );
 
-			foreach ($parts as $part) {
-				if ( $part['0'] && is_dir($this->config['app_dir'] . $this->config['view_path'] . $this->view . $part) ) {
-					$this->view .= $part . '/';
-				} else if ($part !== $this->config['default_view'] ){
-					$this->view .= $part;
-				} else {
-					$this->view .= $this->config['default_view'];
-				}
-			}
-		}
+        // If this is a nested view (in a sub-folder)
+        if ( $parts )
+        {
+            $this->view = '';
 
-		if ( is_dir($this->config['view_path'] . $this->view) )
-			$this->view = $this->view . $this->config['default_view'];
+            foreach ($parts as $part)
+            {
+                if ( $part['0'] && is_dir($this->config['app_dir'] . $this->config['view_path'] . $this->view . $part) )
+                {
+                    $this->view .= $part . '/';
+                }
+                else if ($part !== $this->config['default_view'] )
+                {
+                    $this->view .= $part;
+                }
+                else
+                {
+                    $this->view .= $this->config['default_view'];
+                }
+            }
+        }
 
-		if ( !file_exists($this->config['view_path'] . $this->view . '.php') )
-			die( "Could not load view <b>{$this->view}</b>" );
+        if ( is_dir($this->config['view_path'] . $this->view) )
+        {
+            $this->view = $this->view . $this->config['default_view'];
+        }
 
-		// Grab contents of assigned view
-		ob_start();
-		require_once $this->config['view_path'] . $this->view . '.php';
-		$this->content = ob_get_clean();
+        if ( !file_exists($this->config['view_path'] . $this->view . '.php') )
+        {
+            die( "Could not load view <b>{$this->view}</b>" );
+        }
 
-		// Get variables being sent to Layout
-		foreach ($this->vars as $var => $val ) {
-			$$var = $val;
-		}
+        // Grab contents of assigned view
+        ob_start();
+        require_once $this->config['view_path'] . $this->view . '.php';
+        $this->content = ob_get_clean();
 
-		if ( $this->layout ) {
-			if ( !file_exists($this->config['layout_path'] . $this->layout . '.php') )
-				die( "Could not load layout <b>{$this->layout}</b>" );
+        // Get variables being sent to Layout
+        foreach ($this->vars as $var => $val )
+        {
+            $$var = $val;
+        }
 
-			// Output out layout, with the page content and any extra variables
-			require_once $this->config['layout_path'] . $this->layout . '.php';
-		} else {
-			$this->getContent();
-		}
-
-	}
+        if ( $this->layout )
+        {
+            try
+            {
+                // Output the layout with page content and any extra vars
+                require $this->config['view_path'] . $this->layout . '.php';
+            }
+            catch (Exception $e)
+            {
+                echo "Message : " . $e->getMessage();
+                echo "Code : " . $e->getCode();
+            }
+        }
+        else
+        {
+            echo $this->getContent();
+        }
+    }
 }
